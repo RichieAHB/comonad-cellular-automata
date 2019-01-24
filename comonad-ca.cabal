@@ -1,0 +1,72 @@
+-- This file has been generated from package.yaml by hpack version 0.28.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 76d38e37412dd0ac2599c89f4a1b10b32f9bda939c0cba3d25f993ff04631e57
+
+name:           comonad-ca
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/RichieAHB/comonad#readme>
+homepage:       https://github.com/RichieAHB/comonad-ca#readme
+bug-reports:    https://github.com/RichieAHB/comonad-ca/issues
+author:         Richard Beddington
+maintainer:     richard.beddington@gmail.com
+copyright:      Richard Beddington
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+extra-source-files:
+    ChangeLog.md
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/RichieAHB/comonad-ca
+
+library
+  exposed-modules:
+      Control.Monad.Utils
+      Data.CellularAutomata.CA1
+      Data.CellularAutomata.CA2
+      GameOfLife
+      SierpinskiTriangles
+      Utils.Cell
+      Utils.Terminal
+  other-modules:
+      Paths_comonad_ca
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , comonad
+    , terminal-size
+  default-language: Haskell2010
+
+executable comonad-ca-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_comonad_ca
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , comonad
+    , comonad-ca
+    , terminal-size
+  default-language: Haskell2010
+
+test-suite comonad-ca-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_comonad_ca
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , comonad
+    , terminal-size
+  default-language: Haskell2010
